@@ -760,6 +760,9 @@ while (bucleprincipal==true){// se realiza el bucle principal de opciones
   }
 
     }else if(opcion==3){// Se crea el menu para la opción del coordinador
+      var buclecoordinador=true
+      while (buclecoordinador==true){
+
         console.log("######################")
         console.log("Menu coordinador")
         console.log("######################")
@@ -771,6 +774,227 @@ while (bucleprincipal==true){// se realiza el bucle principal de opciones
         console.log("(6) Asignar los trainers encargados de cada ruta")
         console.log("(7) Realizar reportes")
         console.log("(8) Salir al menu principal")
+        var respues=prompt("Ingrese la opción deseada:")
+        if (respues==1){
+          console.log("#######Camper#########")
+
+        var idCamper=parseInt(prompt("Ingrese tu id de camper:"))
+        for (var grupo of Campers){
+
+          for (var camper of grupo.campers){
+
+            if (camper.id == idCamper){
+              console.log("ID", camper.id);
+              console.log("Nombres:", camper.nombres);
+              console.log("Apellidos:", camper.apellidos);
+              console.log("Direccion:", camper.direccion);
+              console.log("Acudiente:", camper.acudiente);
+              console.log("Telefonos:", camper.telefonos);
+              console.log("Estado:", camper.estado);
+              console.log("Riesgo:", camper.riesgo);
+              console.log("Modulos:", camper.modulos);
+              
+            }
+          }
+          
+        }
+
+        }else if(respues==7){
+          var bulianito=true
+          while (bulianito==true){
+              console.log("Menu de reportes")// se crea el menu de los reportes y se muestran las opciones al usuario
+              console.log("(1)Listar los **campers** que se encuentren en estado de inscrito.")
+              console.log("(2)Listar los **campers** que aprobaron el examen inicial.")
+              console.log("(3)Listar los entrenadores que se encuentran trabajando con **CampusLands**.")
+              console.log("(4)Listar los **campers** que cuentan con bajo rendimiento.")
+              console.log("(5)Listar los **campers** y **trainers** que se encuentren asociados a una ruta de entrenamiento.")
+              console.log("(6)Mostrar cuantos **campers** perdieron y aprobaron cada uno de los módulos teniendo en cuenta la ruta de entrenamiento y el entrenador encargado.")
+              console.log("(7)volver al menu principal")
+              var respuesta=prompt("Ingrese la opción deseada")
+
+              if (respuesta==1){// se imprimen los campers que esten inscritos
+                console.log("Los campers que se encuentran en estado inscrito son");
+                var campersinscrito="Inscrito";
+                console.log("######## Campers Inscrito #########")
+                for (var grupo of Campers){
+                  for (var camper of grupo.campers){
+
+                    if (camper.estado == campersinscrito){
+
+                      console.log("ID", camper.id);
+                      console.log("Nombres:", camper.nombres);
+                      console.log("Apellidos:", camper.apellidos);
+                      console.log("Direccion:", camper.direccion);
+                      console.log("Acudiente:", camper.acudiente);
+                      console.log("Telefonos:", camper.telefonos);
+                      console.log("Estado:", camper.estado);
+                      console.log("Riesgo:", camper.riesgo);
+                      console.log("Modulos:", camper.modulos);
+                    }
+                  }
+                  
+                }
+                
+                
+              } else if (respuesta==2){// se imprimen los campers que hallan aprobado el examen inicial
+                console.log("Los campers que aprobaron el examen inicial son:");
+                var campersAprobados="Aprobado";
+                console.log("######## Campers Aprobados #########")
+                for (var grupo of Campers){
+                  for (var camper of grupo.campers){
+
+                    if (camper.estado == campersAprobados){
+
+                      console.log("ID", camper.id);
+                      console.log("Nombres:", camper.nombres);
+                      console.log("Apellidos:", camper.apellidos);
+                      console.log("Direccion:", camper.direccion);
+                      console.log("Acudiente:", camper.acudiente);
+                      console.log("Telefonos:", camper.telefonos);
+                      console.log("Estado:", camper.estado);
+                      console.log("Riesgo:", camper.riesgo);
+                      console.log("Modulos:", camper.modulos);
+                      
+                    }
+                  }
+                  
+                }
+
+          } else if (respuesta==3){// Se imprimen los entrenadores que se encuentren trabajando en campusland
+            console.log("los entrenadores que se encuentran trabajando con **CampusLands** son:")
+            for (var grupo of trainers){
+
+              for (var trainer of grupo.trainer){
+
+                console.log("ID:",trainer.id);
+                console.log("nombre:", trainer.nombre);
+                console.log("apellido:", trainer.apellido);
+                console.log("Horario:", trainer.Horario);
+                console.log("ruta:", trainer.ruta);
+                console.log("grupo:", trainer.grupo);
+
+          }
+        }
+        } else if (respuesta==4){// Se imprimen los campers con un rendimiento bajo
+          console.log("Los campers que cuentan con bajo rendimiento son:");
+                var campersRendimiento="Alto";
+                console.log("######## Campers con bajo rendimiento #########")
+                for (var grupo of Campers){
+                  for (var camper of grupo.campers){
+
+                    if (camper.riesgo == campersRendimiento){
+
+                      console.log("ID", camper.id);
+                      console.log("Nombres:", camper.nombres);
+                      console.log("Apellidos:", camper.apellidos);
+                      console.log("Direccion:", camper.direccion);
+                      console.log("Acudiente:", camper.acudiente);
+                      console.log("Telefonos:", camper.telefonos);
+                      console.log("Estado:", camper.estado);
+                      console.log("Riesgo:", camper.riesgo);
+                      console.log("Modulos:", camper.modulos);
+                      
+                    }
+                  }
+                  
+                }
+
+        } else if (respuesta==5){// Se imprimen los campers y trainer que esten asociados a una ruta de entrenamiento
+          console.log("los **campers** y **trainers** que se encuentren asociados a una ruta de entrenamiento son:");
+                var campersAprobados="Aprobado";
+                console.log("######## los **campers** asociados a una ruta de entrenamiento son #########")
+                for (var grupo of Campers){
+                  for (var camper of grupo.campers){
+
+                    if (camper.estado == campersAprobados){
+
+                      console.log("ID", camper.id);
+                      console.log("Nombres:", camper.nombres);
+                      console.log("Apellidos:", camper.apellidos);
+                      console.log("Direccion:", camper.direccion);
+                      console.log("Acudiente:", camper.acudiente);
+                      console.log("Telefonos:", camper.telefonos);
+                      console.log("Estado:", camper.estado);
+                      console.log("Riesgo:", camper.riesgo);
+                      console.log("Modulos:", camper.modulos);
+                      
+                    }
+                  }
+                  
+                }
+                console.log("######## los **trainers** asociados a una ruta de entrenamiento son #########")
+                var rutatrainer="No asignada"
+                for (var grupo of trainers){
+
+                  for (var trainer of grupo.trainer){
+      
+                    if (trainer.ruta != rutatrainer){
+                      console.log("ID:",trainer.id);
+                      console.log("nombre:", trainer.nombre);
+                      console.log("apellido:", trainer.apellido);
+                      console.log("Horario:", trainer.Horario);
+                      console.log("ruta:", trainer.ruta);
+                      console.log("grupo:", trainer.grupo);
+    
+                    }
+      
+                  }
+              
+                }
+        } else if (respuesta==6){// Se imprimen los campers que aprobaron y reprobaron 
+          console.log("Los **campers** perdieron y aprobaron cada uno de los módulos teniendo en cuenta la ruta de entrenamiento y el entrenador encargado.")
+          console.log("Los campers que perdieron son:")
+          var campersReprobados="Reprobado";
+          for (var grupo of Campers){
+            for (var camper of grupo.campers){
+
+              if (camper.estado == campersReprobados){
+                console.log("ID", camper.id);
+                console.log("Nombres:", camper.nombres);
+                console.log("Apellidos:", camper.apellidos);
+                console.log("Direccion:", camper.direccion);
+                console.log("Acudiente:", camper.acudiente);
+                console.log("Telefonos:", camper.telefonos);
+                console.log("Estado:", camper.estado);
+                console.log("Riesgo:", camper.riesgo);
+                console.log("Modulos:", camper.modulos);
+                
+              }
+            }
+            
+          }
+          console.log("")
+          console.log("Los campers que aprobaron son:")
+          var campersAprobados="Aprobado";
+          for (var grupo of Campers){
+            for (var camper of grupo.campers){
+
+              if (camper.estado == campersAprobados){
+                console.log("ID", camper.id);
+                console.log("Nombres:", camper.nombres);
+                console.log("Apellidos:", camper.apellidos);
+                console.log("Direccion:", camper.direccion);
+                console.log("Acudiente:", camper.acudiente);
+                console.log("Telefonos:", camper.telefonos);
+                console.log("Estado:", camper.estado);
+                console.log("Riesgo:", camper.riesgo);
+                console.log("Modulos:", camper.modulos);
+                
+              }
+            }
+            
+          }
+
+        }else if (respuesta==7){// se finaliza la opción de reportes y se vuelve al menu de Trainer
+          console.log("Se volvio al menu Trainer")
+          var bulianito=false
+        }
+    }
+
+        } else if(respues==8){
+          var buclecoordinador=false
+        }
+    }
 
 
     }else if (opcion==4){// Se finaliza el programa
