@@ -778,7 +778,7 @@ while (bucleprincipal==true){// se realiza el bucle principal de opciones
         if (respues==1){
           console.log("#######Camper#########")
 
-        var idCamper=parseInt(prompt("Ingrese tu id de camper:"))
+        var idCamper=parseInt(prompt("Ingrese el id de camper:"));
         for (var grupo of Campers){
 
           for (var camper of grupo.campers){
@@ -787,19 +787,69 @@ while (bucleprincipal==true){// se realiza el bucle principal de opciones
               console.log("ID", camper.id);
               console.log("Nombres:", camper.nombres);
               console.log("Apellidos:", camper.apellidos);
-              console.log("Direccion:", camper.direccion);
-              console.log("Acudiente:", camper.acudiente);
-              console.log("Telefonos:", camper.telefonos);
-              console.log("Estado:", camper.estado);
-              console.log("Riesgo:", camper.riesgo);
-              console.log("Modulos:", camper.modulos);
+              var notaTeorica=parseInt(prompt("Ingrese la nota teorica"));
+              var notaPractica=parseInt(prompt("Ingrese la nota practica"));
+              var notatotal= notaTeorica + notaPractica;
+              var totalnota=notatotal/2;
+              console.log("Nota total:",totalnota)
+              if (totalnota>=60){
+                camper.estado="Aprobado"
+              }else if (totalnota<60){
+                camper.estado="Reprobado"
+              }
+              console.log("El camper se encuentra",camper.estado," en el examen")
               
             }
           }
           
         }
 
-        }else if(respues==7){
+        }else if(respues==2){
+          console.log("Ingrese la siguiente informacion para añadir un nuevo camper:")
+          var nuevoCamper=[]
+          nuevoCamper["id"]=parseInt(prompt("Ingrese el id del nuevo camper:"))
+          nuevoCamper["nombres"]=prompt("Ingrese los nombres del camper:")
+          nuevoCamper["apellidos"]=prompt("Ingrese los apellidos del camper:")
+          nuevoCamper["direccion"]=prompt("Ingrese la direccion del camper:")
+          nuevoCamper["acudiente"]=prompt("Ingrese el nombre del acudiente:")
+          nuevoCamper["telefonos"]=prompt("Ingrese el numero de telefono:")
+          nuevoCamper["estado"]=prompt("Ingrese el estado en que se encuentra el camper")
+          nuevoCamper["riesgo"]=prompt("Ingrese el riesgo en que se encuentra el camper")
+          Campers.push(nuevoCamper)
+          console.log("Camper añadido correctamente:")
+
+
+
+        }else if (respues==3){
+          console.log("#######Camper#########")
+
+          var idCamper=parseInt(prompt("Ingrese el id de camper:"));
+          for (var grupo of Campers){
+  
+            for (var camper of grupo.campers){
+  
+              if (camper.id == idCamper){
+                console.log("ID", camper.id);
+                console.log("Nombres:", camper.nombres);
+                console.log("Apellidos:", camper.apellidos);
+                var notaTeorica=parseInt(prompt("Ingrese la nota teorica"));
+                var notaPractica=parseInt(prompt("Ingrese la nota practica"));
+                var notatotal= notaTeorica + notaPractica;
+                var totalnota=notatotal/2;
+                console.log(totalnota)
+                if (totalnota>=60){
+                  camper.estado="Aprobado"
+                }else if (totalnota<60){
+                  camper.estado="Reprobado"
+                }
+                console.log("El camper se encuentra",camper.estado," en el examen")
+                
+              }
+            }
+            
+          }
+
+        } else if(respues==7){
           var bulianito=true
           while (bulianito==true){
               console.log("Menu de reportes")// se crea el menu de los reportes y se muestran las opciones al usuario
